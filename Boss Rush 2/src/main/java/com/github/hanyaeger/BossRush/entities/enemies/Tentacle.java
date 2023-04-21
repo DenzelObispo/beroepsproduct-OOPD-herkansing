@@ -7,7 +7,6 @@ public class Tentacle extends Enemy {
     public Tentacle(Coordinate2D initialLocation) {
         super(initialLocation);
 
-
     }
 
     @Override
