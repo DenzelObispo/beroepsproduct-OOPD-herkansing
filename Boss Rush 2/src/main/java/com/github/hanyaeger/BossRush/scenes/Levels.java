@@ -8,15 +8,18 @@ import com.github.hanyaeger.BossRush.entities.text.LevelText;
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.EntitySpawnerContainer;
+import com.github.hanyaeger.api.UpdateExposer;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 
-public abstract class Levels extends DynamicScene implements EntitySpawnerContainer {
-
+public abstract class Levels extends DynamicScene implements EntitySpawnerContainer, UpdateExposer {
     private HealthText healthText;
+    public LevelText levelText;
     private BulletSpawner bulletSpawner;
 
-    public Levels(){
+    public static int currentLevel;
 
+    public Levels(){
+        currentLevel = 0;
     }
 
     @Override
@@ -24,6 +27,8 @@ public abstract class Levels extends DynamicScene implements EntitySpawnerContai
         setBackgroundImage("backgrounds/background.png");
 
         healthText = new HealthText(new Coordinate2D(42,6));
+        levelText = new LevelText(new Coordinate2D(getWidth() - 85,5));
+
         bulletSpawner = new BulletSpawner(new Coordinate2D(375,642));
     }
 
@@ -32,8 +37,9 @@ public abstract class Levels extends DynamicScene implements EntitySpawnerContai
         addEntity(new Player(new Coordinate2D(getWidth() / 2 - 24 ,610), healthText));
 
         addEntity(healthText);
+        addEntity(levelText);
         addEntity(new Hearth(new Coordinate2D(15,5)));
-        addEntity(new LevelText(new Coordinate2D(new Coordinate2D(getWidth() - 85,5))));
+
 
     }
 
@@ -41,4 +47,8 @@ public abstract class Levels extends DynamicScene implements EntitySpawnerContai
         addEntitySpawner(bulletSpawner);
     }
 
+    @Override
+    public void explicitUpdate(long l) {
+        levelText.setLevelText(currentLevel);
+    }
 }

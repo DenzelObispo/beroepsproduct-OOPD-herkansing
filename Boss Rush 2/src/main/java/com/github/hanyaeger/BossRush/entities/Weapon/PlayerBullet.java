@@ -1,6 +1,5 @@
 package com.github.hanyaeger.BossRush.entities.Weapon;
 
-import com.github.hanyaeger.BossRush.entities.Player;
 import com.github.hanyaeger.BossRush.entities.enemies.Enemy;
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;

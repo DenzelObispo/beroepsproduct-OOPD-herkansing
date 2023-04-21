@@ -13,11 +13,9 @@ public class LevelText extends TextEntity {
 
         setFill(Color.rgb(153,229, 80));
         setFont(Font.font("Roboto", FontWeight.SEMI_BOLD, 20));
-
-        setText("Level: " + 1);
     }
 
-    public void setLevelText(int level){
+    public  void setLevelText(int level){
         setText("Level: " + level);
     }
 }
