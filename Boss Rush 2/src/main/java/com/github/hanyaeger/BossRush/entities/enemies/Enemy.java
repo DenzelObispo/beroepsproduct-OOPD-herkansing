@@ -6,9 +6,6 @@ import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 
-// abstract class
-// fixedupdate hier
-
 public abstract class Enemy extends DynamicCompositeEntity implements Collider, Collided, UpdateExposer {
 
     public Enemy(Coordinate2D initialLocation) {

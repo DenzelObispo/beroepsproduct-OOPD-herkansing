@@ -3,6 +3,7 @@ package com.github.hanyaeger.BossRush.entities;
 import com.github.hanyaeger.BossRush.entities.text.HealthText;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
+import com.github.hanyaeger.api.UpdateExposer;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.Newtonian;
@@ -14,16 +15,18 @@ import javafx.scene.input.KeyCode;
 
 import java.util.Set;
 
-public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Newtonian ,Collided, Collider {
+public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Newtonian ,Collided, Collider, UpdateExposer {
     private int moveSpeed = 5;
     private int health = 3;
     private HealthText healthText;
+    public static Coordinate2D playerPosition;
 
 
     public Player(Coordinate2D location ,HealthText healthText){
         super("sprites/player.png", location, new Size(48), 1, 4);
 
         this.healthText = healthText;
+        playerPosition = new Coordinate2D();
 
         healthText.setHealthText(health);
 
@@ -74,5 +77,10 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     @Override
     public void onCollision(Collider collidingObject){
 
+    }
+
+    @Override
+    public void explicitUpdate(long l) {
+        playerPosition = this.getLocationInScene();
     }
 }
