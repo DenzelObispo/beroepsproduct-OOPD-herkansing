@@ -1,5 +1,7 @@
 package com.github.hanyaeger.BossRush.entities;
 
+import com.github.hanyaeger.BossRush.entities.enemies.Enemy;
+import com.github.hanyaeger.BossRush.entities.enemies.EnemyProjectile;
 import com.github.hanyaeger.BossRush.entities.text.HealthText;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
@@ -16,11 +18,12 @@ import javafx.scene.input.KeyCode;
 import java.util.Set;
 
 public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Newtonian ,Collided, Collider, UpdateExposer {
-    private int moveSpeed = 5;
+    private final int MOVE_SPEED = 5;
     private int health = 3;
     private HealthText healthText;
     public static Coordinate2D playerPosition;
 
+    public static Boolean hasPlayerDied = false;
 
     public Player(Coordinate2D location ,HealthText healthText){
         super("sprites/player.png", location, new Size(48), 1, 4);
@@ -37,16 +40,16 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     @Override
     public void onPressedKeysChange(Set<KeyCode> pressedKeys){
         if(pressedKeys.contains(KeyCode.A)){
-            setMotion(moveSpeed,270d);
+            setMotion(MOVE_SPEED,270d);
             setCurrentFrameIndex(3);
         } else if(pressedKeys.contains(KeyCode.D)){
-            setMotion(moveSpeed,90d);
+            setMotion(MOVE_SPEED,90d);
             setCurrentFrameIndex(1);
         } else if(pressedKeys.contains(KeyCode.W)){
-            setMotion(moveSpeed,180d);
+            setMotion(MOVE_SPEED,180d);
             setCurrentFrameIndex(0);
         } else if(pressedKeys.contains(KeyCode.S)){
-            setMotion(moveSpeed,0d);
+            setMotion(MOVE_SPEED,0d);
             setCurrentFrameIndex(2);
         } else if(pressedKeys.isEmpty()){
             setSpeed(0);
@@ -76,11 +79,28 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void onCollision(Collider collidingObject){
-
+        if (collidingObject instanceof EnemyProjectile){
+            takeDamage();
+        } else if(collidingObject instanceof Enemy){
+            takeDamage();
+        }
     }
 
     @Override
     public void explicitUpdate(long l) {
         playerPosition = this.getLocationInScene();
+    }
+
+    private void takeDamage(){
+        health--;
+
+        healthText.setHealthText(health);
+        checkIfPlayerDied();
+    }
+
+    private void checkIfPlayerDied(){
+        if(health == 0){
+            hasPlayerDied = true;
+        }
     }
 }

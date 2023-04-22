@@ -4,19 +4,20 @@ import com.github.hanyaeger.BossRush.BossRush;
 import com.github.hanyaeger.BossRush.entities.enemies.Tentacle;
 import com.github.hanyaeger.api.Coordinate2D;
 
-public class LevelOne extends GameLevels {
+public class LevelTwo extends GameLevels {
     private BossRush bossRush;
 
-    public LevelOne(BossRush bossRush){
+    public LevelTwo(BossRush bossRush){
         super(bossRush);
         this.bossRush = bossRush;
 
-        currentLevel = 1;
+        currentLevel = 2;
     }
 
     public void setupEntities() {
         super.setupEntities();
 
         addEntity(new Tentacle(new Coordinate2D(getWidth() / 2 - 24 ,100)));
+
     }
 }

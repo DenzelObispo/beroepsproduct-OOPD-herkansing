@@ -16,7 +16,7 @@ public class BulletSpawner extends EntitySpawner {
 
     @Override
     protected void spawnEntities() {
-        var shootPosition = new Coordinate2D(Player.playerPosition.getX() + 27,Player.playerPosition.getY() - 10);
+        var shootPosition = new Coordinate2D(Player.playerPosition.getX() + 26,Player.playerPosition.getY() - 10);
         var bullet = new PlayerBullet(shootPosition, direction);
         spawn(bullet);
     }

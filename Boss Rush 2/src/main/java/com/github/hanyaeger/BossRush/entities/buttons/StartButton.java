@@ -20,6 +20,6 @@ public class StartButton extends Button implements MouseButtonPressedListener, M
 
     @Override
     public void onMouseButtonPressed(MouseButton button, Coordinate2D coordinate2D){
-        bossRush.setActiveScene(3);
+        bossRush.setActiveScene(BossRush.LEVEL_ONE);
     }
 }

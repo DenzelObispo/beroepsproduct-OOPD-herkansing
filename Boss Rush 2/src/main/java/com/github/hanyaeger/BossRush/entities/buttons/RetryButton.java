@@ -20,7 +20,7 @@ public class RetryButton extends Button implements MouseButtonPressedListener, M
 
     @Override
     public void onMouseButtonPressed(MouseButton button, Coordinate2D coordinate2D){
-        bossRush.setActiveScene(1);
+        bossRush.setActiveScene(BossRush.LEVEL_ONE);
     }
 
 }
