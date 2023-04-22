@@ -36,7 +36,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void onPressedKeysChange(Set<KeyCode> pressedKeys){
-        int moveSpeed = 5;
+        int moveSpeed = 6;
 
         if(pressedKeys.contains(KeyCode.A)){
             setMotion(moveSpeed,270d);

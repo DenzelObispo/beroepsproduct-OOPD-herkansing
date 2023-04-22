@@ -44,6 +44,7 @@ public abstract class GameLevels extends DynamicScene implements EntitySpawnerCo
         addEntity(new Hearth(new Coordinate2D(15,5)));
     }
 
+    @Override
     public void setupEntitySpawners() {
         addEntitySpawner(bulletSpawner);
     }

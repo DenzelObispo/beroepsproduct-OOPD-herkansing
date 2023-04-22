@@ -10,13 +10,13 @@ import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 
-public class EnemyProjectile extends DynamicSpriteEntity implements SceneBorderCrossingWatcher, Collider, Collided {
 
+public class EnemyProjectile extends DynamicSpriteEntity implements SceneBorderCrossingWatcher, Collider, Collided {
     public EnemyProjectile(Coordinate2D location, double direction) {
-        super("sprites/projectile.png", location, new Size(48), 1, 1);
+        super("sprites/projectile.png", location, new Size(40), 1, 1);
 
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
-        setMotion(8, direction);
+        setMotion(4, direction);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class EnemyProjectile extends DynamicSpriteEntity implements SceneBorderC
     @Override
     public void onCollision(Collider collidingObject) {
         if (collidingObject instanceof Player){
-            remove();
+           remove();
         }
     }
 }

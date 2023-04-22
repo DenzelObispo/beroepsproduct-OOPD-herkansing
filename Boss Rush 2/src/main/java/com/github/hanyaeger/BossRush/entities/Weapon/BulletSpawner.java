@@ -9,7 +9,7 @@ public class BulletSpawner extends EntitySpawner {
     private double direction;
 
     public BulletSpawner(Coordinate2D location) {
-        super(200);
+        super(150);
 
         direction = Direction.UP.getValue();
     }

@@ -11,6 +11,7 @@ import com.github.hanyaeger.api.scenes.SceneBorder;
 public abstract class Enemy extends DynamicSpriteEntity implements Collider, Collided, UpdateExposer, SceneBorderTouchingWatcher {
     public int health;
     public int moveSpeed;
+    public static Coordinate2D enemyPosition;
     public String sprite;
     public Enemy(Coordinate2D initialLocation, int health, int moveSpeed, String sprite) {
         super(sprite,initialLocation, new Size(96));
@@ -18,6 +19,8 @@ public abstract class Enemy extends DynamicSpriteEntity implements Collider, Col
         this.health = health;
         this.moveSpeed = moveSpeed;
         this.sprite = sprite;
+
+        enemyPosition = getLocationInScene();
     }
 
     @Override
@@ -30,7 +33,7 @@ public abstract class Enemy extends DynamicSpriteEntity implements Collider, Col
 
     @Override
     public void explicitUpdate(long l) {
-
+        enemyPosition = getLocationInScene();
     }
 
     private void takeDamage(){
