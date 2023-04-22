@@ -16,7 +16,8 @@ public abstract class GameLevels extends DynamicScene implements EntitySpawnerCo
     private HealthText healthText;
     public LevelText levelText;
     private BulletSpawner bulletSpawner;
-    public static int currentLevel;
+    public static int currentLevel = 0;
+    public static int gameState;
 
     public GameLevels(BossRush bossRush){
         this.bossRush = bossRush;
@@ -25,6 +26,7 @@ public abstract class GameLevels extends DynamicScene implements EntitySpawnerCo
     @Override
     public void setupScene() {
         setBackgroundImage("backgrounds/background.png");
+        gameState = 0;
 
         healthText = new HealthText(new Coordinate2D(42,6));
         levelText = new LevelText(new Coordinate2D(getWidth() - 85,5));
@@ -49,8 +51,14 @@ public abstract class GameLevels extends DynamicScene implements EntitySpawnerCo
     public void explicitUpdate(long l) {
         levelText.setLevelText(currentLevel);
 
-        if (Player.hasPlayerDied){
+        checkGameState();
+    }
+
+    private void checkGameState(){
+        if(gameState == -1){
             bossRush.setActiveScene(BossRush.GAME_OVER_SCREEN);
+        } else if (gameState == 1){
+            bossRush.setActiveScene(BossRush.VICTORY_SCREEN);
         }
     }
 }

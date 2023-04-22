@@ -3,6 +3,7 @@ package com.github.hanyaeger.BossRush.entities;
 import com.github.hanyaeger.BossRush.entities.enemies.Enemy;
 import com.github.hanyaeger.BossRush.entities.enemies.EnemyProjectile;
 import com.github.hanyaeger.BossRush.entities.text.HealthText;
+import com.github.hanyaeger.BossRush.scenes.GameLevels;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.UpdateExposer;
@@ -21,15 +22,13 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     private final int MOVE_SPEED = 5;
     private int health = 3;
     private HealthText healthText;
-    public static Coordinate2D playerPosition;
-
+    public static Coordinate2D playerPosition = new Coordinate2D();;
     public static Boolean hasPlayerDied = false;
 
     public Player(Coordinate2D location ,HealthText healthText){
         super("sprites/player.png", location, new Size(48), 1, 4);
 
         this.healthText = healthText;
-        playerPosition = new Coordinate2D();
 
         healthText.setHealthText(health);
 
@@ -93,14 +92,13 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     private void takeDamage(){
         health--;
-
         healthText.setHealthText(health);
         checkIfPlayerDied();
     }
 
     private void checkIfPlayerDied(){
         if(health == 0){
-            hasPlayerDied = true;
+            GameLevels.gameState = -1;
         }
     }
 }
