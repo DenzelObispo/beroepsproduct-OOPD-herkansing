@@ -1,7 +1,8 @@
 package com.github.hanyaeger.BossRush.entities;
 
+import com.github.hanyaeger.BossRush.BossRush;
 import com.github.hanyaeger.BossRush.entities.enemies.Enemy;
-import com.github.hanyaeger.BossRush.entities.enemies.EnemyProjectile;
+import com.github.hanyaeger.BossRush.entities.enemies.spawners.EnemyProjectile;
 import com.github.hanyaeger.BossRush.entities.text.HealthText;
 import com.github.hanyaeger.BossRush.scenes.GameLevels;
 import com.github.hanyaeger.api.Coordinate2D;
@@ -19,14 +20,15 @@ import javafx.scene.input.KeyCode;
 import java.util.Set;
 
 public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Newtonian ,Collided, Collider, UpdateExposer {
+    public BossRush bossRush;
     private int health = 3;
     private HealthText healthText;
     public static Coordinate2D playerPosition = new Coordinate2D();;
-    public static Boolean hasPlayerDied = false;
 
-    public Player(Coordinate2D location ,HealthText healthText){
+    public Player(Coordinate2D location ,HealthText healthText, BossRush bossRush){
         super("sprites/player.png", location, new Size(48), 1, 4);
 
+        this.bossRush = bossRush;
         this.healthText = healthText;
         healthText.setHealthText(health);
 
@@ -96,7 +98,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     private void checkIfPlayerDied(){
         if(health == 0){
-            GameLevels.gameState = -1;
+            bossRush.setActiveScene(BossRush.GAME_OVER_SCREEN);
         }
     }
 }

@@ -5,11 +5,14 @@ import com.github.hanyaeger.BossRush.scenes.GameLevels;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Direction;
 
-public class Tentacle extends Enemy {
-    public Tentacle(Coordinate2D initialLocation, BossRush bossRush) {
-        super(initialLocation, 10, 2, "sprites/tentacle.png", bossRush);
+public class Virus extends Enemy {
+    public Virus(Coordinate2D initialLocation, BossRush bossRush) {
+        super(initialLocation, 10, 4, "sprites/virus.png", bossRush);
 
         setMotion(moveSpeed, Direction.LEFT);
-        GameLevels.currentLevel = 1;
+        setRotationSpeed(.2);
+        applyRotation();
+
+        GameLevels.currentLevel = 2;
     }
 }

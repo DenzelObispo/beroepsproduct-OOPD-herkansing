@@ -12,7 +12,7 @@ import com.github.hanyaeger.api.UpdateExposer;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 
 public abstract class GameLevels extends DynamicScene implements EntitySpawnerContainer, UpdateExposer {
-    private BossRush bossRush;
+    public BossRush bossRush;
     private HealthText healthText;
     public LevelText levelText;
     private BulletSpawner bulletSpawner;
@@ -26,8 +26,9 @@ public abstract class GameLevels extends DynamicScene implements EntitySpawnerCo
     @Override
     public void setupScene() {
         setBackgroundImage("backgrounds/background.png");
-        gameState = 0;
+
         currentLevel = 0;
+        gameState = 0;
 
         healthText = new HealthText(new Coordinate2D(42,6));
         levelText = new LevelText(new Coordinate2D(getWidth() - 85,5));
@@ -37,7 +38,7 @@ public abstract class GameLevels extends DynamicScene implements EntitySpawnerCo
 
     @Override
     public void setupEntities() {
-        addEntity(new Player(new Coordinate2D(getWidth() / 2 - 24 ,610), healthText));
+        addEntity(new Player(new Coordinate2D(getWidth() / 2 - 24 ,610), healthText, bossRush));
 
         addEntity(healthText);
         addEntity(levelText);
@@ -51,16 +52,6 @@ public abstract class GameLevels extends DynamicScene implements EntitySpawnerCo
 
     @Override
     public void explicitUpdate(long l) {
-        levelText.setLevelText(currentLevel);
-
-        checkGameState();
-    }
-
-    private void checkGameState(){
-        if(gameState == -1){
-            bossRush.setActiveScene(BossRush.GAME_OVER_SCREEN);
-        } else if (gameState == 1){
-            bossRush.setActiveScene(BossRush.VICTORY_SCREEN);
-        }
+        levelText.setLevelText(GameLevels.currentLevel);
     }
 }

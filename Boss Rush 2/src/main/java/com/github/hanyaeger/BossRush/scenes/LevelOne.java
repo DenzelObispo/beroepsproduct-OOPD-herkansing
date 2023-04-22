@@ -14,7 +14,7 @@ public class LevelOne extends GameLevels  {
     public void setupEntities() {
         super.setupEntities();
 
-        addEntity(new Tentacle(new Coordinate2D(getWidth() / 2 - 24 ,100)));
+        addEntity(new Tentacle(new Coordinate2D(getWidth() / 2 - 24 ,100), bossRush));
     }
 
     public void setupEntitySpawners() {
