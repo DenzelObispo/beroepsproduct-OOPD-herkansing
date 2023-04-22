@@ -9,7 +9,6 @@ public class LevelOne extends GameLevels {
     public LevelOne(BossRush bossRush){
         super(bossRush);
 
-        currentLevel = 1;
     }
 
     public void setupEntities() {

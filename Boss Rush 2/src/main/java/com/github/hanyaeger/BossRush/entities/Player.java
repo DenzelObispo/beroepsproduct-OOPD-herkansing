@@ -19,7 +19,6 @@ import javafx.scene.input.KeyCode;
 import java.util.Set;
 
 public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Newtonian ,Collided, Collider, UpdateExposer {
-    private final int MOVE_SPEED = 5;
     private int health = 3;
     private HealthText healthText;
     public static Coordinate2D playerPosition = new Coordinate2D();;
@@ -29,7 +28,6 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         super("sprites/player.png", location, new Size(48), 1, 4);
 
         this.healthText = healthText;
-
         healthText.setHealthText(health);
 
         setGravityConstant(0);
@@ -38,17 +36,19 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void onPressedKeysChange(Set<KeyCode> pressedKeys){
+        int moveSpeed = 5;
+
         if(pressedKeys.contains(KeyCode.A)){
-            setMotion(MOVE_SPEED,270d);
+            setMotion(moveSpeed,270d);
             setCurrentFrameIndex(3);
         } else if(pressedKeys.contains(KeyCode.D)){
-            setMotion(MOVE_SPEED,90d);
+            setMotion(moveSpeed,90d);
             setCurrentFrameIndex(1);
         } else if(pressedKeys.contains(KeyCode.W)){
-            setMotion(MOVE_SPEED,180d);
+            setMotion(moveSpeed,180d);
             setCurrentFrameIndex(0);
         } else if(pressedKeys.contains(KeyCode.S)){
-            setMotion(MOVE_SPEED,0d);
+            setMotion(moveSpeed,0d);
             setCurrentFrameIndex(2);
         } else if(pressedKeys.isEmpty()){
             setSpeed(0);
@@ -57,8 +57,6 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void notifyBoundaryTouching(SceneBorder border){
-        setSpeed(0);
-
         switch(border){
             case TOP:
                 setAnchorLocationY(1);
