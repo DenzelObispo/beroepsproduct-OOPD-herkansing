@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class CyclopsAttackSpawner extends EntitySpawner {
 
-    public CyclopsAttackSpawner(long intervalInMs) {
+    public CyclopsAttackSpawner() {
         super(1250);
     }
 

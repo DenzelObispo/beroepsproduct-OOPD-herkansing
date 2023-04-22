@@ -3,9 +3,9 @@ package com.github.hanyaeger.BossRush;
 import com.github.hanyaeger.BossRush.scenes.levels.LevelOne;
 import com.github.hanyaeger.BossRush.scenes.levels.LevelThree;
 import com.github.hanyaeger.BossRush.scenes.levels.LevelTwo;
-import com.github.hanyaeger.BossRush.scenes.menu.GameOver;
+import com.github.hanyaeger.BossRush.scenes.menu.GameOverScene;
 import com.github.hanyaeger.BossRush.scenes.menu.TitleScene;
-import com.github.hanyaeger.BossRush.scenes.menu.Victory;
+import com.github.hanyaeger.BossRush.scenes.menu.VictoryScene;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
 
@@ -29,9 +29,8 @@ public class BossRush extends YaegerGame {
         addScene(LEVEL_ONE, new LevelOne(this));
         addScene(LEVEL_TWO, new LevelTwo(this));
         addScene(LEVEL_THREE, new LevelThree(this));
-        addScene(GAME_OVER_SCREEN, new GameOver(this));
-        addScene(VICTORY_SCREEN, new Victory(this));
-
+        addScene(GAME_OVER_SCREEN, new GameOverScene(this));
+        addScene(VICTORY_SCREEN, new VictoryScene(this));
     }
 
     @Override

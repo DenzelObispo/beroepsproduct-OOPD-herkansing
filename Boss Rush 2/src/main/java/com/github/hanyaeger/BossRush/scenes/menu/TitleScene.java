@@ -6,8 +6,7 @@ import com.github.hanyaeger.BossRush.entities.text.TitleText;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.BossRush.BossRush;
 
-
-public class TitleScene extends MenuScene {
+public class TitleScene extends MenuSceneController {
 
     public TitleScene(BossRush bossRush){
         super(bossRush);

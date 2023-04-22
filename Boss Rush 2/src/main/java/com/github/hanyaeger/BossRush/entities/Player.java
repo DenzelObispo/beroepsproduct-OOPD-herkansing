@@ -1,7 +1,7 @@
 package com.github.hanyaeger.BossRush.entities;
 
 import com.github.hanyaeger.BossRush.BossRush;
-import com.github.hanyaeger.BossRush.entities.enemies.Enemy;
+import com.github.hanyaeger.BossRush.entities.enemies.EnemyController;
 import com.github.hanyaeger.BossRush.entities.weapon.EnemyProjectile;
 import com.github.hanyaeger.BossRush.entities.text.HealthText;
 import com.github.hanyaeger.api.Coordinate2D;
@@ -80,7 +80,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     public void onCollision(Collider collidingObject){
         if (collidingObject instanceof EnemyProjectile){
             takeDamage();
-        } else if(collidingObject instanceof Enemy){
+        } else if(collidingObject instanceof EnemyController){
             takeDamage();
         }
     }
@@ -102,10 +102,11 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     private void checkIfPlayerDied(){
         if(health == 0){
-            bossRush.setActiveScene(BossRush.GAME_OVER_SCREEN);
             SoundClip hurt = new SoundClip("audio/playerDied.wav");
             hurt.setVolume(2d);
             hurt.play();
+
+            bossRush.setActiveScene(BossRush.GAME_OVER_SCREEN);
         }
     }
 }

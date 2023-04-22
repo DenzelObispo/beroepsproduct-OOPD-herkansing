@@ -1,6 +1,6 @@
 package com.github.hanyaeger.BossRush.entities.weapon;
 
-import com.github.hanyaeger.BossRush.entities.enemies.Enemy;
+import com.github.hanyaeger.BossRush.entities.enemies.EnemyController;
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
@@ -30,7 +30,7 @@ public class PlayerBullet extends DynamicSpriteEntity implements SceneBorderCros
 
     @Override
     public void onCollision(Collider collidingObject) {
-        if (collidingObject instanceof Enemy){
+        if (collidingObject instanceof EnemyController){
             remove();
         }
     }

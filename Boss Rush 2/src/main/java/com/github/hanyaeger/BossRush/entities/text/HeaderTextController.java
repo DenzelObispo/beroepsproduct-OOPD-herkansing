@@ -7,10 +7,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public abstract class HeaderText extends TextEntity {
-    public HeaderText(Coordinate2D initialLocation, final String text){
+public abstract class HeaderTextController extends TextEntity {
+    public HeaderTextController(Coordinate2D initialLocation, final String text){
         super(initialLocation, text);
 
+        setTextStyle();
     }
 
     public void setTextStyle(){

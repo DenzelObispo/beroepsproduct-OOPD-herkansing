@@ -10,7 +10,6 @@ import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 
-
 public class EnemyProjectile extends DynamicSpriteEntity implements SceneBorderCrossingWatcher, Collider, Collided {
     public EnemyProjectile(Coordinate2D location, double direction) {
         super("sprites/projectile.png", location, new Size(40), 1, 1);

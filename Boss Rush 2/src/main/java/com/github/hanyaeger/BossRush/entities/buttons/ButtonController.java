@@ -1,5 +1,6 @@
 package com.github.hanyaeger.BossRush.entities.buttons;
 
+import com.github.hanyaeger.BossRush.BossRush;
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.impl.TextEntity;
@@ -11,9 +12,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public abstract class Button extends TextEntity implements MouseButtonPressedListener, MouseEnterListener, MouseExitListener{
-    public Button(Coordinate2D initialLocation, String text) {
+public abstract class ButtonController extends TextEntity implements MouseButtonPressedListener, MouseEnterListener, MouseExitListener{
+   public BossRush bossRush;
+    public ButtonController(Coordinate2D initialLocation, BossRush bossRush, String text) {
         super(initialLocation, text);
+
+        this.bossRush = bossRush;
 
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
         setFill(Color.rgb(153,229, 80));

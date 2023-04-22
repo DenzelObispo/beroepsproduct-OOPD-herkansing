@@ -1,11 +1,11 @@
 package com.github.hanyaeger.BossRush.scenes.levels;
 
 import com.github.hanyaeger.BossRush.BossRush;
-import com.github.hanyaeger.BossRush.entities.enemies.Tentacle;
+import com.github.hanyaeger.BossRush.entities.enemies.TentacleEnemy;
 import com.github.hanyaeger.BossRush.entities.spawners.TentacleAttackSpawner;
 import com.github.hanyaeger.api.Coordinate2D;
 
-public class LevelOne extends GameLevel {
+public class LevelOne extends GameLevelController {
 
     public LevelOne(BossRush bossRush){
         super(bossRush);
@@ -21,13 +21,13 @@ public class LevelOne extends GameLevel {
     public void setupEntities() {
         super.setupEntities();
 
-        addEntity(new Tentacle(new Coordinate2D(getWidth() / 2 - 24 ,100), bossRush));
+        addEntity(new TentacleEnemy(new Coordinate2D(getWidth() / 2 - 24 ,100), bossRush));
     }
 
     public void setupEntitySpawners() {
         super.setupEntitySpawners();
 
-        TentacleAttackSpawner attackSpawner = new TentacleAttackSpawner(2000);
+        TentacleAttackSpawner attackSpawner = new TentacleAttackSpawner();
         addEntitySpawner(attackSpawner);
     }
 }

@@ -1,16 +1,15 @@
 package com.github.hanyaeger.BossRush.entities.spawners;
 
 import com.github.hanyaeger.BossRush.entities.weapon.EnemyProjectile;
-import com.github.hanyaeger.BossRush.entities.enemies.Enemy;
+import com.github.hanyaeger.BossRush.entities.enemies.EnemyController;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.EntitySpawner;
-
 
 import java.util.Random;
 
 public class TentacleAttackSpawner extends EntitySpawner {
 
-    public TentacleAttackSpawner(long intervalInMs) {
+    public TentacleAttackSpawner() {
         super(1750);
     }
 
@@ -33,7 +32,7 @@ public class TentacleAttackSpawner extends EntitySpawner {
     }
 
     private void tentacleAttackPatternTwo( ){
-        Coordinate2D position = Enemy.enemyPosition;
+        Coordinate2D position = EnemyController.enemyPosition;
 
         spawn(new EnemyProjectile(position, 0d));
         spawn(new EnemyProjectile(position, 45d));

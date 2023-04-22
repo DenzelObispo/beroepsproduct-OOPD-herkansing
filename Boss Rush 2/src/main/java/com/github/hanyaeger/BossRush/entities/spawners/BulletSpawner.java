@@ -7,18 +7,15 @@ import com.github.hanyaeger.api.entities.Direction;
 import com.github.hanyaeger.api.entities.EntitySpawner;
 
 public class BulletSpawner extends EntitySpawner {
-    private double direction;
 
-    public BulletSpawner(Coordinate2D location) {
+    public BulletSpawner() {
         super(150);
-
-        direction = Direction.UP.getValue();
     }
 
     @Override
     protected void spawnEntities() {
         var shootPosition = new Coordinate2D(Player.playerPosition.getX() + 26,Player.playerPosition.getY() - 10);
-        var bullet = new PlayerBullet(shootPosition, direction);
+        var bullet = new PlayerBullet(shootPosition, Direction.UP.getValue());
         spawn(bullet);
     }
 }

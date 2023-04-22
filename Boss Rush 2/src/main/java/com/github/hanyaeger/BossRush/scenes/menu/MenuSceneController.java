@@ -6,10 +6,10 @@ import com.github.hanyaeger.BossRush.entities.buttons.RetryButton;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.StaticScene;
 
-public abstract class MenuScene extends StaticScene {
+public abstract class MenuSceneController extends StaticScene {
 
     public BossRush bossRush;
-    public MenuScene(BossRush bossRush){
+    public MenuSceneController(BossRush bossRush){
         this.bossRush = bossRush;
     }
 
