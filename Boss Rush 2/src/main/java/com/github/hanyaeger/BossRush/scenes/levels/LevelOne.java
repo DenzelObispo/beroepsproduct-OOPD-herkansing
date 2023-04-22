@@ -1,14 +1,21 @@
-package com.github.hanyaeger.BossRush.scenes;
+package com.github.hanyaeger.BossRush.scenes.levels;
 
 import com.github.hanyaeger.BossRush.BossRush;
 import com.github.hanyaeger.BossRush.entities.enemies.Tentacle;
-import com.github.hanyaeger.BossRush.entities.enemies.spawners.TentacleAttackSpawner;
+import com.github.hanyaeger.BossRush.entities.spawners.TentacleAttackSpawner;
 import com.github.hanyaeger.api.Coordinate2D;
 
-public class LevelOne extends GameLevels  {
+public class LevelOne extends GameLevel {
 
     public LevelOne(BossRush bossRush){
         super(bossRush);
+    }
+
+    @Override
+    public void setupScene() {
+        super.setupScene();
+
+        setBackgroundAudio("audio/LevelOne.mp3");
     }
 
     public void setupEntities() {

@@ -1,29 +1,27 @@
-package com.github.hanyaeger.BossRush.scenes;
+package com.github.hanyaeger.BossRush.scenes.menu;
 
-import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.scenes.StaticScene;
 import com.github.hanyaeger.BossRush.BossRush;
 import com.github.hanyaeger.BossRush.entities.buttons.QuitButton;
 import com.github.hanyaeger.BossRush.entities.buttons.RetryButton;
-import com.github.hanyaeger.BossRush.entities.text.GameOverText;
+import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.scenes.StaticScene;
 
-public class GameOver extends StaticScene {
-    private BossRush bossRush;
+public abstract class MenuScene extends StaticScene {
 
-    public GameOver(BossRush bossRush){
+    public BossRush bossRush;
+    public MenuScene(BossRush bossRush){
         this.bossRush = bossRush;
     }
 
     @Override
-    public void setupScene() {
+    public void setupScene(){
         setBackgroundImage("backgrounds/background.png");
+        setBackgroundAudio("audio/main.mp3");
     }
 
     @Override
-    public void setupEntities() {
-        addEntity(new GameOverText(new Coordinate2D(getWidth() / 2, 100)));
+    public void setupEntities(){
         addEntity(new RetryButton(new Coordinate2D(getWidth() / 2, 350), bossRush));
         addEntity(new QuitButton(new Coordinate2D(getWidth() / 2, 450), bossRush));
-
     }
 }

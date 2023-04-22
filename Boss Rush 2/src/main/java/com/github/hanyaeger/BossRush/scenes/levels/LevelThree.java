@@ -1,20 +1,23 @@
-package com.github.hanyaeger.BossRush.scenes;
+package com.github.hanyaeger.BossRush.scenes.levels;
 
 import com.github.hanyaeger.BossRush.BossRush;
 import com.github.hanyaeger.BossRush.entities.enemies.Cyclops;
-import com.github.hanyaeger.BossRush.entities.enemies.Tentacle;
-import com.github.hanyaeger.BossRush.entities.enemies.spawners.CyclopsAttackSpawner;
-import com.github.hanyaeger.BossRush.entities.enemies.spawners.VirusAttackSpawner;
+import com.github.hanyaeger.BossRush.entities.spawners.CyclopsAttackSpawner;
 import com.github.hanyaeger.api.Coordinate2D;
 
-public class LevelThree extends GameLevels {
+public class LevelThree extends GameLevel {
     private BossRush bossRush;
 
     public LevelThree(BossRush bossRush){
         super(bossRush);
         this.bossRush = bossRush;
 
-        GameLevels.currentLevel = 3;
+        GameLevel.currentLevel = 3;
+    }
+    public void setupScene() {
+        super.setupScene();
+
+        setBackgroundAudio("audio/LevelThree.mp3");
     }
 
     public void setupEntities() {

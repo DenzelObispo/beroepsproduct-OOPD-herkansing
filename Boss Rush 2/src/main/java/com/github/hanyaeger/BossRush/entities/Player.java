@@ -2,9 +2,8 @@ package com.github.hanyaeger.BossRush.entities;
 
 import com.github.hanyaeger.BossRush.BossRush;
 import com.github.hanyaeger.BossRush.entities.enemies.Enemy;
-import com.github.hanyaeger.BossRush.entities.enemies.spawners.EnemyProjectile;
+import com.github.hanyaeger.BossRush.entities.weapon.EnemyProjectile;
 import com.github.hanyaeger.BossRush.entities.text.HealthText;
-import com.github.hanyaeger.BossRush.scenes.GameLevels;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.UpdateExposer;
@@ -13,6 +12,7 @@ import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.Newtonian;
 import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
+import com.github.hanyaeger.api.media.SoundClip;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import javafx.scene.input.KeyCode;
@@ -91,6 +91,10 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     }
 
     private void takeDamage(){
+        SoundClip hurt = new SoundClip("audio/hit.wav");
+        hurt.setVolume(2d);
+        hurt.play();
+
         health--;
         healthText.setHealthText(health);
         checkIfPlayerDied();
@@ -99,6 +103,9 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     private void checkIfPlayerDied(){
         if(health == 0){
             bossRush.setActiveScene(BossRush.GAME_OVER_SCREEN);
+            SoundClip hurt = new SoundClip("audio/playerDied.wav");
+            hurt.setVolume(2d);
+            hurt.play();
         }
     }
 }

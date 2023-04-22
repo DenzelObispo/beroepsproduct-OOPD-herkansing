@@ -1,6 +1,11 @@
 package com.github.hanyaeger.BossRush;
 
-import com.github.hanyaeger.BossRush.scenes.*;
+import com.github.hanyaeger.BossRush.scenes.levels.LevelOne;
+import com.github.hanyaeger.BossRush.scenes.levels.LevelThree;
+import com.github.hanyaeger.BossRush.scenes.levels.LevelTwo;
+import com.github.hanyaeger.BossRush.scenes.menu.GameOver;
+import com.github.hanyaeger.BossRush.scenes.menu.TitleScene;
+import com.github.hanyaeger.BossRush.scenes.menu.Victory;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
 

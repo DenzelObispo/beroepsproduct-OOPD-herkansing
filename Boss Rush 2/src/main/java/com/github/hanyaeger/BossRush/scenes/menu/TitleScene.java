@@ -1,25 +1,16 @@
-package com.github.hanyaeger.BossRush.scenes;
+package com.github.hanyaeger.BossRush.scenes.menu;
 
 import com.github.hanyaeger.BossRush.entities.buttons.QuitButton;
 import com.github.hanyaeger.BossRush.entities.buttons.StartButton;
 import com.github.hanyaeger.BossRush.entities.text.TitleText;
 import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.scenes.StaticScene;
 import com.github.hanyaeger.BossRush.BossRush;
 
 
-public class TitleScene extends StaticScene {
-
-    private BossRush bossRush;
+public class TitleScene extends MenuScene {
 
     public TitleScene(BossRush bossRush){
-        this.bossRush = bossRush;
-    }
-
-    @Override
-    public void setupScene(){
-        //setBackgroundAudio("");
-        setBackgroundImage("backgrounds/background.png");
+        super(bossRush);
     }
 
     @Override

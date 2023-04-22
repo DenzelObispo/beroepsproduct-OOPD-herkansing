@@ -1,6 +1,7 @@
-package com.github.hanyaeger.BossRush.entities.Weapon;
+package com.github.hanyaeger.BossRush.entities.spawners;
 
 import com.github.hanyaeger.BossRush.entities.Player;
+import com.github.hanyaeger.BossRush.entities.weapon.PlayerBullet;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Direction;
 import com.github.hanyaeger.api.entities.EntitySpawner;

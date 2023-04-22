@@ -1,8 +1,7 @@
-package com.github.hanyaeger.BossRush.scenes;
+package com.github.hanyaeger.BossRush.scenes.levels;
 
 import com.github.hanyaeger.BossRush.BossRush;
 import com.github.hanyaeger.BossRush.entities.Player;
-import com.github.hanyaeger.BossRush.entities.Weapon.BulletSpawner;
 import com.github.hanyaeger.BossRush.entities.sprites.Hearth;
 import com.github.hanyaeger.BossRush.entities.text.HealthText;
 import com.github.hanyaeger.BossRush.entities.text.LevelText;
@@ -10,8 +9,9 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.EntitySpawnerContainer;
 import com.github.hanyaeger.api.UpdateExposer;
 import com.github.hanyaeger.api.scenes.DynamicScene;
+import com.github.hanyaeger.BossRush.entities.spawners.BulletSpawner;
 
-public abstract class GameLevels extends DynamicScene implements EntitySpawnerContainer, UpdateExposer {
+public abstract class GameLevel extends DynamicScene implements EntitySpawnerContainer, UpdateExposer {
     public BossRush bossRush;
     private HealthText healthText;
     public LevelText levelText;
@@ -19,7 +19,7 @@ public abstract class GameLevels extends DynamicScene implements EntitySpawnerCo
     public static int currentLevel;
     public static int gameState;
 
-    public GameLevels(BossRush bossRush){
+    public GameLevel(BossRush bossRush){
         this.bossRush = bossRush;
     }
 
@@ -52,6 +52,6 @@ public abstract class GameLevels extends DynamicScene implements EntitySpawnerCo
 
     @Override
     public void explicitUpdate(long l) {
-        levelText.setLevelText(GameLevels.currentLevel);
+        levelText.setLevelText(GameLevel.currentLevel);
     }
 }

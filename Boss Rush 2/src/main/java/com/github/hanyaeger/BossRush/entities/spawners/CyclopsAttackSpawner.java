@@ -1,6 +1,6 @@
-package com.github.hanyaeger.BossRush.entities.enemies.spawners;
+package com.github.hanyaeger.BossRush.entities.spawners;
 
-import com.github.hanyaeger.BossRush.entities.enemies.Enemy;
+import com.github.hanyaeger.BossRush.entities.weapon.EnemyProjectile;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.EntitySpawner;
 

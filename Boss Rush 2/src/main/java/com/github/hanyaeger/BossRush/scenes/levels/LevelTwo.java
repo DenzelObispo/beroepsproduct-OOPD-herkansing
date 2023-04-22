@@ -1,15 +1,20 @@
-package com.github.hanyaeger.BossRush.scenes;
+package com.github.hanyaeger.BossRush.scenes.levels;
 
 import com.github.hanyaeger.BossRush.BossRush;
-import com.github.hanyaeger.BossRush.entities.enemies.Tentacle;
 import com.github.hanyaeger.BossRush.entities.enemies.Virus;
-import com.github.hanyaeger.BossRush.entities.enemies.spawners.VirusAttackSpawner;
+import com.github.hanyaeger.BossRush.entities.spawners.VirusAttackSpawner;
 import com.github.hanyaeger.api.Coordinate2D;
 
-public class LevelTwo extends GameLevels {
+public class LevelTwo extends GameLevel {
 
     public LevelTwo(BossRush bossRush){
         super(bossRush);
+    }
+
+    public void setupScene() {
+        super.setupScene();
+
+        setBackgroundAudio("audio/LevelTwo.mp3");
     }
 
     public void setupEntities() {

@@ -1,14 +1,14 @@
 package com.github.hanyaeger.BossRush.entities.enemies;
 
 import com.github.hanyaeger.BossRush.BossRush;
-import com.github.hanyaeger.BossRush.entities.Weapon.PlayerBullet;
-import com.github.hanyaeger.BossRush.scenes.GameLevels;
+import com.github.hanyaeger.BossRush.entities.weapon.PlayerBullet;
+import com.github.hanyaeger.BossRush.scenes.levels.GameLevel;
 import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.EntitySpawnerContainer;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.UpdateExposer;
 import com.github.hanyaeger.api.entities.*;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
+import com.github.hanyaeger.api.media.SoundClip;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 
 public abstract class Enemy extends DynamicSpriteEntity implements Collider, Collided, UpdateExposer, SceneBorderTouchingWatcher {
@@ -50,6 +50,9 @@ public abstract class Enemy extends DynamicSpriteEntity implements Collider, Col
     private void checkIfEnemyDied(int health){
         if(health == 0){
             remove();
+            SoundClip hurt = new SoundClip("audio/enemyDied.wav");
+            hurt.setVolume(2d);
+            hurt.play();
             switchToNextLevel();
         }
     }
@@ -67,11 +70,11 @@ public abstract class Enemy extends DynamicSpriteEntity implements Collider, Col
         }
     }
     private void switchToNextLevel(){
-        if(GameLevels.currentLevel == 1){
+        if(GameLevel.currentLevel == 1){
             bossRush.setActiveScene(BossRush.LEVEL_TWO);
-        } else if(GameLevels.currentLevel == 2){
+        } else if(GameLevel.currentLevel == 2){
             bossRush.setActiveScene(BossRush.LEVEL_THREE);
-        } else if(GameLevels.currentLevel == 3){
+        } else if(GameLevel.currentLevel == 3){
             bossRush.setActiveScene(BossRush.VICTORY_SCREEN);
         }
     }

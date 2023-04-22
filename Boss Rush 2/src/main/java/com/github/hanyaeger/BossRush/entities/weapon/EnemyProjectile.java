@@ -1,4 +1,4 @@
-package com.github.hanyaeger.BossRush.entities.enemies.spawners;
+package com.github.hanyaeger.BossRush.entities.weapon;
 
 import com.github.hanyaeger.BossRush.entities.Player;
 import com.github.hanyaeger.api.AnchorPoint;
