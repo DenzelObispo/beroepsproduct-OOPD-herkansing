@@ -7,9 +7,9 @@ import com.github.hanyaeger.api.entities.Direction;
 
 public class VirusEnemy extends EnemyController {
     public VirusEnemy(Coordinate2D initialLocation, BossRush bossRush) {
-        super(initialLocation, 100, 4, "sprites/virus.png", bossRush);
+        super(initialLocation, 100, 3, "sprites/virus.png", bossRush);
 
-        setMotion(moveSpeed, Direction.LEFT);
+        setMotion(moveSpeed, Direction.DOWN);
         setRotationSpeed(.2);
         applyRotation();
 

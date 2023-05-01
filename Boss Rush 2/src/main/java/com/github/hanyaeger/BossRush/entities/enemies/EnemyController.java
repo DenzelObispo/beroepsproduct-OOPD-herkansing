@@ -60,6 +60,12 @@ public abstract class EnemyController extends DynamicSpriteEntity implements Col
     @Override
     public void notifyBoundaryTouching(SceneBorder border){
         switch(border){
+            case TOP:
+                setMotion(moveSpeed, Direction.DOWN);
+                break;
+            case BOTTOM:
+                setMotion(moveSpeed, Direction.UP);
+                break;
             case LEFT:
                 setMotion(moveSpeed, Direction.RIGHT);
                 break;
