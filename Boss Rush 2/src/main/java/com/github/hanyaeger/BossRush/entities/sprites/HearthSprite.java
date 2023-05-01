@@ -7,6 +7,6 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 public class HearthSprite extends DynamicSpriteEntity {
 
     public HearthSprite(Coordinate2D location) {
-        super("sprites/HearthSprite.png", location, new Size(24,24));
+        super("sprites/Hearth.png", location, new Size(24,24));
     }
 }
