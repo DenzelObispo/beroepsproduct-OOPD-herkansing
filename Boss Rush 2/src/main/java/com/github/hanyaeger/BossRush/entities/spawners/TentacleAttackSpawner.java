@@ -1,13 +1,8 @@
 package com.github.hanyaeger.BossRush.entities.spawners;
 
-import com.github.hanyaeger.BossRush.entities.weapon.EnemyProjectile;
-import com.github.hanyaeger.BossRush.entities.enemies.EnemyController;
-import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.entities.EntitySpawner;
-
 import java.util.Random;
 
-public class TentacleAttackSpawner extends EntitySpawner {
+public class TentacleAttackSpawner extends EnemyAttackSpawner {
 
     public TentacleAttackSpawner() {
         super(1750);
@@ -22,22 +17,5 @@ public class TentacleAttackSpawner extends EntitySpawner {
         }
     }
 
-    private void tentacleAttackPatternOne(){
-        spawn(new EnemyProjectile(new Coordinate2D(100,0), 0d));
-        spawn(new EnemyProjectile(new Coordinate2D(375,0), 0d));
-        spawn(new EnemyProjectile(new Coordinate2D(650,0), 0d));
 
-        spawn(new EnemyProjectile(new Coordinate2D(237.5,750), 180d));
-        spawn(new EnemyProjectile(new Coordinate2D(512.5,750), 180d));
-    }
-
-    private void tentacleAttackPatternTwo( ){
-        Coordinate2D position = EnemyController.enemyPosition;
-
-        spawn(new EnemyProjectile(position, 0d));
-        spawn(new EnemyProjectile(position, 45d));
-        spawn(new EnemyProjectile(position, 315d));
-        spawn(new EnemyProjectile(position, 22.5d));
-        spawn(new EnemyProjectile(position, 337.5));
-    }
 }
